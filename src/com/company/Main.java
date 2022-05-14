@@ -13,7 +13,7 @@ public class Main {
 
     public static void connect(PackegeData pd){
         try{
-            Socket socket = new Socket("127.0.0.1", 5555);
+            Socket socket = new Socket("127.0.0.1", 9999);
             ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
             ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
 
@@ -45,6 +45,13 @@ public class Main {
                 }
 
             }
+            else if(pd.getOperationstype().equals("GET MONEY")){
+                outputStream.writeObject(pd);
+                PackegeData infoFromServer = (PackegeData)inputStream.readObject();
+                Double money = infoFromServer.getAmount();
+                LoginedMenu.balance.append("Balance " + money);
+
+            }
 
             else if(pd.getOperationstype().equals("LIST_info")){
                 outputStream.writeObject(pd);
@@ -55,7 +62,7 @@ public class Main {
                 for(int i=0; i< arrayListFromServer.size(); i++){
                     s += arrayListFromServer.get(i).toString()+ "\n";
                 }
-                //LoginedMenu.textArea.append(s);
+                HistoryMenu.textArea.append(s);
             }
             else if(pd.getOperationstype().equals("GET CUSTOMER")){
                 outputStream.writeObject(pd);

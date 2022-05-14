@@ -56,6 +56,7 @@ public class Login extends Container {
                         MainFrame.login.setVisible(false);
                         MainFrame.Lmenu.setVisible(true);
                         JOptionPane.showMessageDialog(null, "Welcome " + customer.getName());
+                        LoginedMenu.infoButton.setText("Username: " + customer.getUsername());
                     }
                     else{
                         JOptionPane.showMessageDialog(null, "Login or Username wrong!");

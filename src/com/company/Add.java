@@ -70,6 +70,7 @@ public class Add extends Container {
                         Info addMoneyInfo = new Info(null, Login.customer.getUsername());
                         PackegeData pd2 = new PackegeData("ADDMONEY_INFO", addMoneyInfo, Double.parseDouble(amountField.getText()));
                         Main.connect(pd2);
+                        JOptionPane.showMessageDialog(null,"SUCCESSUl");
 
 
                     }

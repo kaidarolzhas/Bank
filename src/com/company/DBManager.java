@@ -52,6 +52,26 @@ public class DBManager {
         return 0;
     }
 
+
+    public double addMoney(String username){
+        double money=0;
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM customer where username = '"+username + "'");
+
+            ResultSet resultSet = statement.executeQuery();
+
+            while(resultSet.next()){
+
+                 money = resultSet.getInt("money");
+
+            }
+            statement.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return money;
+    }
+
     public void addMoney(String username, double amount){
         try {
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM customer where username = '"+username + "'");

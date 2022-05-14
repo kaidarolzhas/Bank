@@ -47,8 +47,7 @@ public class Info implements Serializable {
     @Override
     public String toString() {
         return
-                  username + " " +
-                action + '\n';
+                action ;
 
     }
 }

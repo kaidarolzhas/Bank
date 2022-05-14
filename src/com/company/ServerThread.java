@@ -4,6 +4,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class ServerThread extends Thread  {
     private Socket socket;
@@ -73,6 +74,14 @@ public class ServerThread extends Thread  {
                     ArrayList<Info> arrayInfo = manager.getAllInfo(packegeData.getLogin());
                     PackegeData toClient = new PackegeData();
                     toClient.setInfos(arrayInfo);
+                    outputStream.writeObject(toClient);
+                    break;
+                }
+
+                else if(packegeData.getOperationstype().equals("GET MONEY")){
+                    Double money = manager.getMyMoney(packegeData.getLogin());
+                    PackegeData toClient = new PackegeData();
+                    toClient.setAmount(money);
                     outputStream.writeObject(toClient);
                     break;
                 }

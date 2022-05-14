@@ -5,13 +5,24 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class LoginedMenu extends Container {
+    public static JLabel infoButton;
+    public static JTextArea balance;
     public LoginedMenu(){
         setSize(600,400);
         setLayout(null);
 
-        JLabel infoButton = new JLabel("INFO");
-        infoButton.setBounds(125,65,350,40);
+        infoButton = new JLabel();
+        infoButton.setFont(new Font("Courier New", Font.BOLD, 20));
+        infoButton.setBounds(200,20,350,40);
         add(infoButton);
+
+        balance = new JTextArea();
+        balance.setBounds(125,65,200,40);
+        add(balance);
+
+        JButton updateBalance = new JButton("UPDATE");
+        updateBalance.setBounds(375,65,100,40);
+        add(updateBalance);
 
         JButton historyButton = new JButton("TRANSACTIONS HISTORY");
         historyButton.setBounds(125,115,350,40);
@@ -28,6 +39,15 @@ public class LoginedMenu extends Container {
         JButton LogutButton = new JButton("EXIT");
         LogutButton.setBounds(125,265,350,40);
         add(LogutButton);
+
+        updateBalance.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                balance.setText(null);
+                PackegeData pd = new PackegeData("GET MONEY", Login.customer.getUsername());
+                Main.connect(pd);
+            }
+        });
 
         addButton.addActionListener(new ActionListener() {
             @Override

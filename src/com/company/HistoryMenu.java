@@ -32,7 +32,7 @@ public class HistoryMenu extends Container {
             public void actionPerformed(ActionEvent e) {
                 textArea.setText(null);
 
-                PackegeData pd = new PackegeData("LIST PHONE");
+                PackegeData pd = new PackegeData("LIST_info", Login.customer.getUsername());
                 Main.connect(pd);
             }
         });
