@@ -1,4 +1,4 @@
-package Checker;
+package com.company;
 
 public class Checker {
     public boolean checkerPassoword(String password) { // password verification

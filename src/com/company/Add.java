@@ -1,10 +1,4 @@
-package UserMenu;
-
-import Checker.Checker;
-import Database.PackegeData;
-import com.company.Main;
-import MainMenu.Login;
-import com.company.Info;
+package com.company;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,7 +7,7 @@ import java.awt.event.ActionListener;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import static Database.DBManager.connection;
+import static com.company.DBManager.connection;
 
 public class Add extends Container {
 

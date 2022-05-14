@@ -1,4 +1,4 @@
-package MainMenu;
+package com.company;
 
 import com.company.Main;
 

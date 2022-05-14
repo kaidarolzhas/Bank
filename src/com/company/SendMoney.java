@@ -1,17 +1,16 @@
-package UserMenu;
+package com.company;
 
-import Database.PackegeData;
-import com.company.Main;
-import MainMenu.Login;
+import com.company.*;
 
 import javax.swing.*;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import Main.MainFrame;
+
 public class SendMoney extends Container{
     public static JLabel Error;
+    public static Customer customer;
 
     public SendMoney() {
         setSize(500, 500);

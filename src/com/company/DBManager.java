@@ -1,12 +1,8 @@
-package Database;
+package com.company;
 
-import com.company.Customer;
-import com.company.Info;
-
-import javax.swing.*;
+import com.company.*;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class DBManager {
     public static Connection connection;
@@ -110,12 +106,12 @@ public class DBManager {
     public Customer getCustomer(String loginn){
         Customer customer = new Customer();
         try{
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM customer WHERE login = '" + loginn + "'");
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM customer WHERE username = '" + loginn + "'");
             ResultSet resultSet = statement.executeQuery();
 
             while(resultSet.next()){
                 Integer id = resultSet.getInt("id");
-                String login = resultSet.getString("login");
+                String login = resultSet.getString("username");
                 String password = resultSet.getString("password");
                 String name = resultSet.getString("name");
                 String surname = resultSet.getString("surname");

@@ -1,14 +1,9 @@
 package com.company;
 
-import Database.PackegeData;
-import UserMenu.LoginedMenu;
-import com.company.*;
-import Main.MainFrame;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
-import MainMenu.Login;
 
 public class Main {
 
@@ -61,6 +56,7 @@ public class Main {
                 PackegeData infoFromServer = (PackegeData)inputStream.readObject();
                 Customer customer = infoFromServer.getCustomer();
                 Login.customer = customer;
+                SendMoney.customer = customer;
             }
             inputStream.close();
             outputStream.close();

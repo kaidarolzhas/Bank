@@ -1,7 +1,4 @@
-package MainMenu;
-
-import Main.MainFrame;
-import Database.DBManager;
+package com.company;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,13 +6,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
 
-import static Database.DBManager.connection;
-import static UserMenu.LoginedMenu.myMoney;
-import static UserMenu.LoginedMenu.uname;
+import static com.company.DBManager.connection;
+import static com.company.LoginedMenu.myMoney;
+import static com.company.LoginedMenu.uname;
 
 
 public class Login extends Container {
-
+    public static Customer customer;
     public static String name;
     public static String lname;
     public static String usname;
@@ -48,32 +45,23 @@ public class Login extends Container {
         backButton.setBounds(275, 200, 150, 40);
         add(backButton);
 
-
-
-
-
-
-
         logInButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 try {
-
                     DBManager result = new DBManager();
                     result.connect();
                     Statement stmt = connection.createStatement();
                     String sql = "select * from  customer where username='"  + loginField.getText() + "' and password='" + passwordField.getText() +  "' ";
                     ResultSet rs = stmt.executeQuery(sql);
+
+                    PackegeData pd = new PackegeData("GET CUSTOMER", loginField.getText());
+                    Main.connect(pd);
+
                     if(rs.next()){
-
-
-
                         lname = rs.getNString("surname");
                         name = rs.getNString("name");
                         usname = rs.getNString("username");
-
-
                         uname.setText("User: " + lname + " " + name);
 
                         MainFrame.login.setVisible(false);

@@ -1,8 +1,6 @@
-package Database;
+package com.company;
 
-import com.company.Customer;
-import com.company.Info;
-
+import com.company.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 

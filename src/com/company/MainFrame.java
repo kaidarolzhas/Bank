@@ -1,11 +1,4 @@
-package Main;
-
-import MainMenu.Login;
-import MainMenu.Menu;
-import MainMenu.Signup;
-import UserMenu.Add;
-import UserMenu.LoginedMenu;
-import UserMenu.SendMoney;
+package com.company;
 
 import javax.swing.*;
 
