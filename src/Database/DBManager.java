@@ -107,6 +107,29 @@ public class DBManager {
 
     }
 
+    public Customer getCustomer(String loginn){
+        Customer customer = new Customer();
+        try{
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM customer WHERE login = '" + loginn + "'");
+            ResultSet resultSet = statement.executeQuery();
+
+            while(resultSet.next()){
+                Integer id = resultSet.getInt("id");
+                String login = resultSet.getString("login");
+                String password = resultSet.getString("password");
+                String name = resultSet.getString("name");
+                String surname = resultSet.getString("surname");
+                double money = resultSet.getInt("money");
+
+                customer = new Customer(id, login, password, name, surname, money);
+            }
+            statement.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return customer;
+    }
+
     public void addCustomer(Customer customer) {
         try {
             PreparedStatement statement = connection.prepareStatement("" + "INSERT INTO customer (id, username, password, name, surname,money)" + "VALUES (NULL, ?, ?, ?, ?, ?)");

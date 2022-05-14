@@ -1,18 +1,15 @@
 package UserMenu;
 
-import Database.DBManager;
 import Database.PackegeData;
-import Main.Main;
+import com.company.Main;
 import MainMenu.Login;
-import UserMenu.LoginedMenu;
-import com.company.Info;
 
 import javax.swing.*;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import Main.MainFrame;
 public class SendMoney extends Container{
     public static JLabel Error;
 
@@ -52,23 +49,12 @@ public class SendMoney extends Container{
         SubmitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 try {
-
-
-                    DBManager db = new DBManager();
-                    db.connect();
-
-                    if(db.getMyMoney(Login.usname)>Double.parseDouble(amountField.getText())){
-                        PackegeData pd = new PackegeData("SEND_MONEY", nameField.getText(), Login.usname, Double.parseDouble(amountField.getText()));
-
+                    if(Login.customer.getMoney()>Double.parseDouble(amountField.getText())){
+                        PackegeData pd = new PackegeData("SEND_MONEY",Login.customer.getUsername(),nameField.getText(),Double.parseDouble(amountField.getText()));
                         Main.connect(pd);
                         JOptionPane.showMessageDialog(null,"SUCCESSFUL SENT");
-                        Info sendMoneyInfo = new Info(null,Login.usname, " Sent " + Double.parseDouble(amountField.getText()) + " tg to " + nameField.getText() );
-                        PackegeData pdd = new PackegeData("ADD_info",sendMoneyInfo);
-                        Main.connect(pdd);
-                        double totalMoney = db.getMyMoney(Login.usname)-Double.parseDouble(amountField.getText());
-                        LoginedMenu.myMoney.setText("balance: " + totalMoney + " tg");
+                        LoginedMenu.myMoney.setText("balance: " + Login.customer.getMoney() + " tg");
                     }
                     else{
                         JOptionPane.showMessageDialog(null,"NOT ENOUGH MONEY");

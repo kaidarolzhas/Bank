@@ -1,8 +1,6 @@
 package UserMenu;
 
-import Database.PackegeData;
-import Main.Main;
-import MainMenu.Login;
+import com.company.Main;
 
 import javax.swing.*;
 import java.awt.*;
@@ -70,9 +68,8 @@ public class LoginedMenu extends Container {
             public void actionPerformed(ActionEvent e) {
                 textArea.setText(null);
 
-                PackegeData pd = new PackegeData("LIST_info", Login.usname);
-                Main.connect(pd);
-                System.out.println(Login.usname);
+
+
             }
         });
 

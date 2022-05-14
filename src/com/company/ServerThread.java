@@ -1,4 +1,4 @@
-package Server;
+package com.company;
 import com.company.Customer;
 import Database.DBManager;
 import com.company.Info;
@@ -32,13 +32,16 @@ public class ServerThread extends Thread  {
                 }
                 else if(packegeData.getOperationstype().equals("SEND_MONEY")){
                     String username = packegeData.getUsername();
-                    String me = packegeData.getMe();
                     Double amount = packegeData.getAmount();
-
-                    manager.SendMoney(username,me,amount);
+                    String login = packegeData.getLogin();
+                    manager.SendMoney(username,login,amount);
                     break;
-
-
+                }
+                else if(packegeData.getOperationstype().equals("GET CUSTOMER")){
+                    Customer customer = manager.getCustomer(packegeData.getLogin());
+                    PackegeData toPercussion = new PackegeData(customer);
+                    outputStream.writeObject(toPercussion);
+                    break;
                 }
                 else if(packegeData.getOperationstype().equals("ADD_info")){
                     Info infoClient = packegeData.getInfo();
@@ -52,15 +55,10 @@ public class ServerThread extends Thread  {
                     break;
                 }
                 else if(packegeData.getOperationstype().equals("LIST_info")){
-                    ArrayList<Info> arrayInfo = manager.getAllInfo(packegeData.getMe());
+                    ArrayList<Info> arrayInfo = manager.getAllInfo(packegeData.getLogin());
                     PackegeData toClient = new PackegeData();
                     toClient.setInfos(arrayInfo);
                     outputStream.writeObject(toClient);
-                    break;
-                }
-                else if(packegeData.getOperationstype().equals("MYMONEY")){
-                    String name = packegeData.getMe();
-                    manager.getMyMoney(name);
                     break;
                 }
 

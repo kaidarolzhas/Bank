@@ -12,14 +12,25 @@ public class PackegeData implements Serializable {
     private Info info;
     private ArrayList<Customer> customers;
     private ArrayList<Info> infos;
-    private String me;
+
+    private String login;
     private String username;
     private  double amount;
 
-
-    public PackegeData(String operationstype, String me) {
+    public PackegeData(String operationstype, String login, String username, double amount) {
         this.operationstype = operationstype;
-        this.me = me;
+        this.login = login;
+        this.username = username;
+        this.amount = amount;
+    }
+
+    public PackegeData(String operationstype, String login) {
+        this.operationstype = operationstype;
+        this.login = login;
+    }
+
+    public PackegeData(Customer customer) {
+        this.customer = customer;
     }
 
     public PackegeData(String operationstype, Customer customer) {
@@ -27,10 +38,9 @@ public class PackegeData implements Serializable {
         this.customer = customer;
     }
 
-    public PackegeData(String operationstype,String username, String me,  double amount) {
+    public PackegeData(String operationstype,String username,   double amount) {
         this.operationstype = operationstype;
         this.username = username;
-        this.me = me;
         this.amount = amount;
     }
 
@@ -94,17 +104,13 @@ public class PackegeData implements Serializable {
         return amount;
     }
 
-    public String getMe() {
-        return me;
-    }
+
 
     public String getUsername() {
         return username;
     }
 
-    public void setMe(String me) {
-        this.me = me;
-    }
+
 
     public void setUsername(String username) {
         this.username = username;
@@ -112,5 +118,13 @@ public class PackegeData implements Serializable {
 
     public void setAmount(double amount) {
         this.amount = amount;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
     }
 }

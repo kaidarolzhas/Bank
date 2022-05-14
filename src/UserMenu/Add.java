@@ -2,7 +2,7 @@ package UserMenu;
 
 import Checker.Checker;
 import Database.PackegeData;
-import Main.Main;
+import com.company.Main;
 import MainMenu.Login;
 import com.company.Info;
 
@@ -71,17 +71,17 @@ public class Add extends Container {
                     }
                     else{
 
-                        String sql = "select * from  customer where username='" + Login.usname + "' ";
+                        String sql = "select * from  customer where username='" + Login.customer.getUsername() + "' ";
                         PreparedStatement statement1 = connection.prepareStatement(sql);
                         ResultSet resultSet = statement1.executeQuery();
                         while (resultSet.next()) {
                             double userMoney = resultSet.getDouble("money");
-                            PreparedStatement statement = connection.prepareStatement("UPDATE customer SET money=? WHERE username= '" + Login.usname + "'");
+                            PreparedStatement statement = connection.prepareStatement("UPDATE customer SET money=? WHERE username= '" + Login.customer.getUsername() + "'");
                             statement.setDouble(1, userMoney + Double.parseDouble(amountField.getText()));
                             statement.executeUpdate();
                             statement.close();
                             JOptionPane.showMessageDialog(null, "SUCCESSFUL!");
-                            Info infoADDBALANCE = new Info(null, Login.usname, "Tops up his balance to " + Double.parseDouble(amountField.getText()) + " tg");
+                            Info infoADDBALANCE = new Info(null, Login.customer.getUsername(), "Tops up his balance to " + Double.parseDouble(amountField.getText()) + " tg");
                             PackegeData pdp = new PackegeData("ADD_info", infoADDBALANCE);
                             Main.connect(pdp);
                             double totall = userMoney + Double.parseDouble(amountField.getText());

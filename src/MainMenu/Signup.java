@@ -1,7 +1,7 @@
 package MainMenu;
 
 import Checker.Checker;
-import Main.Main;
+import com.company.Main;
 import com.company.Customer;
 import Database.DBManager;
 import Database.PackegeData;
