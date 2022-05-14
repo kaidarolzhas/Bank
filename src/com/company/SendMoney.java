@@ -50,6 +50,8 @@ public class SendMoney extends Container{
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
+                    PackegeData pd0 = new PackegeData("GET CUSTOMER", Login.customer.getUsername());
+                    Main.connect(pd0);
                     if(customer.getMoney()>Double.parseDouble(amountField.getText())){
                         PackegeData pd = new PackegeData("SEND_MONEY",customer.getUsername(),nameField.getText(),Double.parseDouble(amountField.getText()));
                         Main.connect(pd);

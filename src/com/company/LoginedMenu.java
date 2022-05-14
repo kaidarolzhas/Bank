@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class LoginedMenu extends Container {
+    public static Customer customer;
     public static JLabel infoButton;
     public static JTextArea balance;
     public LoginedMenu(){

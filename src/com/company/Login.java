@@ -27,7 +27,7 @@ public class Login extends Container {
         passwordLabel.setBounds(125, 150, 100, 30);
         add(passwordLabel);
 
-        JTextField passwordField = new JTextField();
+        JPasswordField passwordField = new JPasswordField();
         passwordField.setBounds(225, 150, 200, 30);
         add(passwordField);
 
