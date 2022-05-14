@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class SendMoney extends Container{
+
     public static JLabel Error;
     public static Customer customer;
 
@@ -49,8 +50,8 @@ public class SendMoney extends Container{
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    if(Login.customer.getMoney()>Double.parseDouble(amountField.getText())){
-                        PackegeData pd = new PackegeData("SEND_MONEY",Login.customer.getUsername(),nameField.getText(),Double.parseDouble(amountField.getText()));
+                    if(customer.getMoney()>Double.parseDouble(amountField.getText())){
+                        PackegeData pd = new PackegeData("SEND_MONEY",customer.getUsername(),nameField.getText(),Double.parseDouble(amountField.getText()));
                         Main.connect(pd);
                         Info sendMoneyInfo = new Info(null,Login.customer.getUsername());
                         PackegeData pd2 = new PackegeData("ADDSEND_info", sendMoneyInfo, nameField.getText(), Double.parseDouble(amountField.getText()));
