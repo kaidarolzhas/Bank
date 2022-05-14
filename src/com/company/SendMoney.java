@@ -13,7 +13,7 @@ public class SendMoney extends Container{
     public static Customer customer;
 
     public SendMoney() {
-        setSize(500, 500);
+        setSize(600, 400);
         setLayout(null);
 
         Error = new JLabel();
@@ -21,27 +21,27 @@ public class SendMoney extends Container{
         add(Error);
 
         JLabel nameLabel = new JLabel("NAME:");
-        nameLabel.setBounds(100, 100, 100, 30);
+        nameLabel.setBounds(150, 100, 100, 30);
         add(nameLabel);
 
         JTextField nameField = new JTextField();
-        nameField.setBounds(200, 100, 200, 30);
+        nameField.setBounds(250, 100, 200, 30);
         add(nameField);
 
         JLabel amountLabel = new JLabel("AMOUNT:");
-        amountLabel.setBounds(100, 150, 100, 30);
+        amountLabel.setBounds(150, 150, 100, 30);
         add(amountLabel);
 
         JTextField amountField = new JTextField();
-        amountField.setBounds(200, 150, 200, 30);
+        amountField.setBounds(250, 150, 200, 30);
         add(amountField);
 
         JButton SubmitButton = new JButton("SUBMIT");
-        SubmitButton.setBounds(100, 200, 140, 40);
+        SubmitButton.setBounds(150, 200, 145, 40);
         add(SubmitButton);
 
-        JButton backButton = new JButton("Back");
-        backButton.setBounds(250, 200, 150, 40);
+        JButton backButton = new JButton("BACK");
+        backButton.setBounds(305, 200, 145, 40);
         add(backButton);
 
 
