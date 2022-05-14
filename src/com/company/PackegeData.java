@@ -15,6 +15,19 @@ public class PackegeData implements Serializable {
     private String username;
     private  double amount;
 
+    public PackegeData(String operationstype, Info info, double amount) {
+        this.operationstype = operationstype;
+        this.info = info;
+        this.amount = amount;
+    }
+
+    public PackegeData(String operationstype, Info info, String login, double amount) {
+        this.operationstype = operationstype;
+        this.info = info;
+        this.login = login;
+        this.amount = amount;
+    }
+
     public PackegeData(String operationstype, String login, String username, double amount) {
         this.operationstype = operationstype;
         this.login = login;

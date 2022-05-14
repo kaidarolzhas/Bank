@@ -33,15 +33,33 @@ public class ServerThread extends Thread  {
                     manager.SendMoney(username,login,amount);
                     break;
                 }
+                else if(packegeData.getOperationstype().equals("ADD_MONEY")){
+                    String username = packegeData.getUsername();
+                    Double amount = packegeData.getAmount();
+                    manager.addMoney(username,amount);
+                    break;
+                }
+
                 else if(packegeData.getOperationstype().equals("GET CUSTOMER")){
                     Customer customer = manager.getCustomer(packegeData.getLogin());
                     PackegeData toPercussion = new PackegeData(customer);
                     outputStream.writeObject(toPercussion);
                     break;
                 }
-                else if(packegeData.getOperationstype().equals("ADD_info")){
+                else if(packegeData.getOperationstype().equals("ADDSEND_info")){
                     Info infoClient = packegeData.getInfo();
-                    manager.addInfo(infoClient);
+                    String login = packegeData.getLogin();
+                    double amount = packegeData.getAmount();
+                    manager.addSendInfo(infoClient, login,amount);
+
+
+                    break;
+                }
+
+                else if(packegeData.getOperationstype().equals("ADDMONEY_INFO")){
+                    Info infoClient = packegeData.getInfo();
+                    double amount = packegeData.getAmount();
+                    manager.addMoneyInfo(infoClient,amount);
                     break;
                 }
                 else if(packegeData.getOperationstype().equals("LIST")){
@@ -50,6 +68,7 @@ public class ServerThread extends Thread  {
                     outputStream.writeObject(toClient);
                     break;
                 }
+
                 else if(packegeData.getOperationstype().equals("LIST_info")){
                     ArrayList<Info> arrayInfo = manager.getAllInfo(packegeData.getLogin());
                     PackegeData toClient = new PackegeData();

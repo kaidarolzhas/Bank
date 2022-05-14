@@ -52,6 +52,30 @@ public class DBManager {
         return 0;
     }
 
+    public void addMoney(String username, double amount){
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM customer where username = '"+username + "'");
+
+            ResultSet resultSet = statement.executeQuery();
+
+            while(resultSet.next()){
+
+                double money = resultSet.getInt("money");
+                statement = connection.prepareStatement("UPDATE customer SET money=? WHERE username= '" + username + "'");
+                statement.setDouble(1, money + amount);
+                statement.executeUpdate();
+                statement.close();
+
+            }
+            statement.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+
+
+
     public int SendMoney(String username, String me, double amount ) {
 
         try {
@@ -142,12 +166,25 @@ public class DBManager {
         }
     }
 
-    public void addInfo(Info info) {
+    public void addSendInfo(Info info, String login, double amount) {
         try {
             PreparedStatement statement = connection.prepareStatement("" + "INSERT INTO info (id, username, action )"
                     + "VALUES (NULL, ?, ?)");
             statement.setString(1, info.getUsername());
-            statement.setString(2, info.getAction());
+            statement.setString(2, info.getUsername() + " Sent " + amount + " tg to " + login);
+            statement.executeUpdate();
+
+            statement.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    public void addMoneyInfo(Info info, double amount) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("" + "INSERT INTO info (id, username, action )"
+                    + "VALUES (NULL, ?, ?)");
+            statement.setString(1, info.getUsername());
+            statement.setString(2, info.getUsername() + " Got " + amount + " tg to balance");
             statement.executeUpdate();
 
             statement.close();

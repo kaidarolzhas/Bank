@@ -9,6 +9,11 @@ public class Info implements Serializable {
     private String username;
     private String action;
 
+    public Info(Integer id, String username) {
+        this.id = id;
+        this.username = username;
+    }
+
     public Info(Integer id, String username, String action) {
         this.id = id;
         this.username = username;

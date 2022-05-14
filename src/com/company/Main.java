@@ -18,14 +18,20 @@ public class Main {
             ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
 
 
-            if(pd.getOperationstype().equals("ADD_info")) {
+            if(pd.getOperationstype().equals("ADDSEND_info")) {
                 outputStream.writeObject(pd);
             }
             else if(pd.getOperationstype().equals("ADD")){
                 outputStream.writeObject(pd);
             }
+            else if(pd.getOperationstype().equals("ADDMONEY_INFO")){
+                outputStream.writeObject(pd);
+            }
 
             else if(pd.getOperationstype().equals("SEND_MONEY")){
+                outputStream.writeObject(pd);
+            }
+            else if(pd.getOperationstype().equals("ADD_MONEY")){
                 outputStream.writeObject(pd);
             }
             else if(pd.getOperationstype().equals("LIST")){

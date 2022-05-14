@@ -65,22 +65,13 @@ public class Add extends Container {
                     }
                     else{
 
-                        String sql = "select * from  customer where username='" + Login.customer.getUsername() + "' ";
-                        PreparedStatement statement1 = connection.prepareStatement(sql);
-                        ResultSet resultSet = statement1.executeQuery();
-                        while (resultSet.next()) {
-                            double userMoney = resultSet.getDouble("money");
-                            PreparedStatement statement = connection.prepareStatement("UPDATE customer SET money=? WHERE username= '" + Login.customer.getUsername() + "'");
-                            statement.setDouble(1, userMoney + Double.parseDouble(amountField.getText()));
-                            statement.executeUpdate();
-                            statement.close();
-                            JOptionPane.showMessageDialog(null, "SUCCESSFUL!");
-                            Info infoADDBALANCE = new Info(null, Login.customer.getUsername(), "Tops up his balance to " + Double.parseDouble(amountField.getText()) + " tg");
-                            PackegeData pdp = new PackegeData("ADD_info", infoADDBALANCE);
-                            Main.connect(pdp);
-                            double totall = userMoney + Double.parseDouble(amountField.getText());
-                            LoginedMenu.myMoney.setText("Balance: " + totall + " tg");
-                        }
+                        PackegeData pd = new PackegeData("ADD_MONEY",Login.customer.getUsername(),Double.parseDouble(amountField.getText()));
+                        Main.connect(pd);
+                        Info addMoneyInfo = new Info(null, Login.customer.getUsername());
+                        PackegeData pd2 = new PackegeData("ADDMONEY_INFO", addMoneyInfo, Double.parseDouble(amountField.getText()));
+                        Main.connect(pd2);
+
+
                     }
 
 
