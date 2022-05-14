@@ -7,16 +7,10 @@ import java.awt.event.ActionListener;
 import java.sql.*;
 
 import static com.company.DBManager.connection;
-import static com.company.LoginedMenu.myMoney;
-import static com.company.LoginedMenu.uname;
 
 
 public class Login extends Container {
     public static Customer customer;
-    public static String name;
-    public static String lname;
-    public static String usname;
-
     public Login() {
         setSize(500, 500);
         setLayout(null);
@@ -59,27 +53,16 @@ public class Login extends Container {
                     Main.connect(pd);
 
                     if(rs.next()){
-                        lname = rs.getNString("surname");
-                        name = rs.getNString("name");
-                        usname = rs.getNString("username");
-                        uname.setText("User: " + lname + " " + name);
-
                         MainFrame.login.setVisible(false);
                         MainFrame.Lmenu.setVisible(true);
-                        JOptionPane.showMessageDialog(null, "Welcome " + lname + " " + name);
-                        myMoney.setText( "balance: " + result.getMyMoney(loginField.getText()) + " tg");
-
-
-
+                        JOptionPane.showMessageDialog(null, "Welcome " + customer.getName());
                     }
                     else{
                         JOptionPane.showMessageDialog(null, "Login or Username wrong!");
                     }
                 } catch(Exception a){
                     a.printStackTrace();
-
                 }
-
                 loginField.setText(null);
                 passwordField.setText(null);
             }

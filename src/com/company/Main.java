@@ -55,7 +55,7 @@ public class Main {
                 for(int i=0; i< arrayListFromServer.size(); i++){
                     s += arrayListFromServer.get(i).toString()+ "\n";
                 }
-                LoginedMenu.textArea.append(s);
+                //LoginedMenu.textArea.append(s);
             }
             else if(pd.getOperationstype().equals("GET CUSTOMER")){
                 outputStream.writeObject(pd);

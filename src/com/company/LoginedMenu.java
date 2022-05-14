@@ -1,59 +1,33 @@
 package com.company;
-
-import com.company.Main;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class LoginedMenu extends Container {
-    public static  JTextArea textArea;
-    public static JLabel myMoney;
-
-    public static JLabel uname;
-
     public LoginedMenu(){
         setSize(600,400);
         setLayout(null);
 
-        JButton listButton = new JButton("LIST");
-        listButton.setBounds(50,75,150,40);
-        add(listButton);
+        JLabel infoButton = new JLabel("INFO");
+        infoButton.setBounds(125,65,350,40);
+        add(infoButton);
+
+        JButton historyButton = new JButton("TRANSACTIONS HISTORY");
+        historyButton.setBounds(125,115,350,40);
+        add(historyButton);
 
         JButton addButton = new JButton("ADD BALANCE");
-        addButton.setBounds(50,125,150,40);
+        addButton.setBounds(125,165,350,40);
         add(addButton);
 
-        JButton Send = new JButton("SEND");
-        Send.setBounds(50,175,150,40);
-        add(Send);
+        JButton sendButton = new JButton("SEND TO MONEY");
+        sendButton.setBounds(125,215,350,40);
+        add(sendButton);
 
-        JButton LogutButton = new JButton("BACK");
-        LogutButton.setBounds(50,215,150,40);
+        JButton LogutButton = new JButton("EXIT");
+        LogutButton.setBounds(125,265,350,40);
         add(LogutButton);
-
-
-        JLabel title = new JLabel("TRANSACTIONS HISTORY");
-        title.setBounds(240,5,300,40);
-        add(title);
-
-        JLabel tip = new JLabel("CLICK TO THE 'LIST' TO RELOAD ");
-        tip.setBounds(240,20,300,50);
-        add(tip);
-
-        myMoney = new JLabel( );
-        myMoney.setBounds(10,20,300,40);
-        add(myMoney);
-
-        uname = new JLabel();
-        uname.setBounds(10,5,300,40);
-        add(uname);
-
-        textArea = new JTextArea();
-        textArea.setBounds(210, 75, 300, 250);
-        textArea.setEditable(false);
-        add(textArea);
 
         addButton.addActionListener(new ActionListener() {
             @Override
@@ -63,37 +37,28 @@ public class LoginedMenu extends Container {
             }
         });
 
-        listButton.addActionListener(new ActionListener() {
+        historyButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                textArea.setText(null);
-
-
-
+                Main.frame.historyMenu.setVisible(true);
+                Main.frame.Lmenu.setVisible(false);
             }
         });
 
-
-
-        Send.addActionListener(new ActionListener() {
+        sendButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                Main.frame.smoney.setVisible(true);
                 Main.frame.Lmenu.setVisible(false);
+                Main.frame.smoney.setVisible(true);
             }
         });
 
         LogutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
-                Main.frame.menu.setVisible(true);
                 Main.frame.Lmenu.setVisible(false);
+                Main.frame.menu.setVisible(true);
             }
         });
-
-
-
     }
-
 }

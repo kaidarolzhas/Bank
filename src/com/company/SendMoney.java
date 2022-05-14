@@ -56,7 +56,6 @@ public class SendMoney extends Container{
                         PackegeData pd2 = new PackegeData("ADDSEND_info", sendMoneyInfo, nameField.getText(), Double.parseDouble(amountField.getText()));
                         Main.connect(pd2);
                         JOptionPane.showMessageDialog(null,"SUCCESSFUL SENT");
-                        LoginedMenu.myMoney.setText("balance: " + Login.customer.getMoney() + " tg");
                     }
                     else{
                         JOptionPane.showMessageDialog(null,"NOT ENOUGH MONEY");

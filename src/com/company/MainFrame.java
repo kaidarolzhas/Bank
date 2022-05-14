@@ -8,7 +8,7 @@ public class MainFrame extends JFrame {
     public static Add addStudent;
     public static Login login;
     public static LoginedMenu Lmenu;
-
+    public static HistoryMenu historyMenu;
     public static Signup signup;
 
     public MainFrame(){
@@ -56,6 +56,10 @@ public class MainFrame extends JFrame {
         success.setVisible(false);
         add(success);*/
 
+        historyMenu = new HistoryMenu();
+        historyMenu.setLocation(0,0);
+        historyMenu.setVisible(false);
+        add(historyMenu);
 
     }
 
