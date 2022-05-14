@@ -1,4 +1,6 @@
-package com.company;
+package MainMenu;
+
+import Main.Main;
 
 import javax.swing.*;
 import java.awt.*;

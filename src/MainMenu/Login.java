@@ -1,18 +1,17 @@
-package com.company;
+package MainMenu;
 
-import Checker.Checker;
+import Main.MainFrame;
+import Database.DBManager;
 
 import javax.swing.*;
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
-import java.util.ArrayList;
 
-import static com.company.DBManager.connection;
-import static com.company.LoginedMenu.myMoney;
-import static com.company.LoginedMenu.uname;
+import static Database.DBManager.connection;
+import static UserMenu.LoginedMenu.myMoney;
+import static UserMenu.LoginedMenu.uname;
 
 
 public class Login extends Container {

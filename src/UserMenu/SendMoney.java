@@ -1,20 +1,17 @@
-package com.company;
+package UserMenu;
 
-import com.mysql.cj.protocol.a.MysqlBinaryValueDecoder;
+import Database.DBManager;
+import Database.PackegeData;
+import Main.Main;
+import MainMenu.Login;
+import UserMenu.LoginedMenu;
+import com.company.Info;
 
-import javax.sound.midi.Soundbank;
 import javax.swing.*;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Calendar;
-import java.util.Date;
-
-import static com.company.DBManager.connection;
 
 public class SendMoney extends Container{
     public static JLabel Error;

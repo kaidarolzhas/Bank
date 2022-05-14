@@ -1,6 +1,8 @@
-package com.company;
+package UserMenu;
 
-import com.mysql.cj.log.Log;
+import Database.PackegeData;
+import Main.Main;
+import MainMenu.Login;
 
 import javax.swing.*;
 import java.awt.*;
@@ -80,7 +82,7 @@ public class LoginedMenu extends Container {
             public void actionPerformed(ActionEvent e) {
                 textArea.setText(null);
 
-                PackegeData pd = new PackegeData("LIST_info",Login.usname);
+                PackegeData pd = new PackegeData("LIST_info", Login.usname);
                 Main.connect(pd);
                 System.out.println(Login.usname);
             }

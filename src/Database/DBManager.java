@@ -1,4 +1,7 @@
-package com.company;
+package Database;
+
+import com.company.Customer;
+import com.company.Info;
 
 import javax.swing.*;
 import java.sql.*;

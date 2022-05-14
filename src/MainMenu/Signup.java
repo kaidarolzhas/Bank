@@ -1,6 +1,10 @@
-package com.company;
+package MainMenu;
 
 import Checker.Checker;
+import Main.Main;
+import com.company.Customer;
+import Database.DBManager;
+import Database.PackegeData;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,7 +13,7 @@ import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import static com.company.DBManager.connection;
+import static Database.DBManager.connection;
 
 public class Signup extends Container {
     public Signup(){

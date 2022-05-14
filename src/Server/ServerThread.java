@@ -1,4 +1,9 @@
-package com.company;
+package Server;
+import com.company.Customer;
+import Database.DBManager;
+import com.company.Info;
+import Database.PackegeData;
+
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
