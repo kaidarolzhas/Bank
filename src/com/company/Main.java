@@ -41,7 +41,7 @@ public class Main {
                 String s = "";
 
                 for(int i=0; i< arrayListFromServer.size(); i++){
-                    s += arrayListFromServer.get(i)+ "\n";
+                    s += arrayListFromServer.get(i).info() + "\n";
                 }
 
             }
@@ -60,7 +60,7 @@ public class Main {
                 String s = "";
 
                 for(int i=0; i< arrayListFromServer.size(); i++){
-                    s += arrayListFromServer.get(i).toString()+ "\n";
+                    s += arrayListFromServer.get(i).info() + "\n";
                 }
                 HistoryMenu.textArea.append(s);
             }

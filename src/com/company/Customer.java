@@ -2,7 +2,7 @@ package com.company;
 
 import java.io.Serializable;
 
-public class Customer implements Serializable {
+public class Customer implements Serializable, InfoInfo {
     private Integer id;
     private String name;
     private String surname;
@@ -79,11 +79,6 @@ public class Customer implements Serializable {
         return password;
     }
 
-    @Override
-    public String toString() {
-        return id +" " + name + " " + surname + " " + username + " " + password;
-    }
-
     public String getCard() {
         return card;
     }
@@ -98,6 +93,11 @@ public class Customer implements Serializable {
 
     public void setMoney(double money) {
         this.money = money;
+    }
+
+    @Override
+    public String info() {
+        return id +" " + name + " " + surname + " " + username + " " + password;
     }
 }
 

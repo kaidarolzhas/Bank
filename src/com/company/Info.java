@@ -3,7 +3,7 @@ package com.company;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Info implements Serializable {
+public class Info implements Serializable, InfoInfo {
 
     private Integer id;
     private String username;
@@ -44,10 +44,9 @@ public class Info implements Serializable {
         return action;
     }
 
-    @Override
-    public String toString() {
-        return
-                action ;
 
+    @Override
+    public String info() {
+        return id + ") " + action;
     }
 }
