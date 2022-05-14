@@ -4,48 +4,46 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-
-import static com.company.DBManager.connection;
 
 public class Add extends Container {
-
     public Add() {
-        setSize(500,500);
+        setSize(600,400);
         setLayout(null);
 
-        JLabel cardLabel = new JLabel("CARD :");
-        cardLabel.setBounds(125, 50, 100, 30);
+        JLabel xLabel = new JLabel("XXXX-XXXX-XXXX-XXXX");
+        xLabel.setBounds(285, 45, 190, 30);
+        add(xLabel);
+
+        JLabel cardLabel = new JLabel("CARD NUMBER:");
+        cardLabel.setBounds(150, 75, 100, 30);
         add(cardLabel);
 
         JTextField cardField = new JTextField();
-        cardField.setBounds(225, 50, 150, 30);
+        cardField.setBounds(260, 75, 190, 30);
         add(cardField);
 
         JLabel cvvLabel = new JLabel("CVV:");
-        cvvLabel.setBounds(125, 100, 70, 30);
+        cvvLabel.setBounds(150, 125, 100, 30);
         add(cvvLabel);
 
         JTextField cvvField = new JTextField();
-        cvvField.setBounds(225, 100, 150, 30);
+        cvvField.setBounds(260, 125, 190, 30);
         add(cvvField);
 
         JLabel amountLabel = new JLabel("AMOUNT:");
-        amountLabel.setBounds(125, 150, 70, 30);
+        amountLabel.setBounds(150, 175, 100, 30);
         add(amountLabel);
 
-
         JTextField amountField = new JTextField();
-        amountField.setBounds(225, 150, 150, 30);
+        amountField.setBounds(260, 175, 190, 30);
         add(amountField);
 
         JButton addButton = new JButton("SUBMIT");
-        addButton.setBounds(150, 250, 240, 30);;
+        addButton.setBounds(150, 225, 145, 30);;
         add(addButton);
 
         JButton backButton = new JButton("BACK TO MENU");
-        backButton.setBounds(150, 300, 240, 30);
+        backButton.setBounds(305, 225, 145, 30);
         add(backButton);
 
         addButton.addActionListener(new ActionListener() {

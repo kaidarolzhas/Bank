@@ -1,6 +1,7 @@
 package com.company;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,8 +12,12 @@ public class HistoryMenu extends Container {
         setSize(600,400);
         setLayout(null);
 
-        JLabel historyLabel = new JLabel("TRANSACTIONS HISTORY");
-        historyLabel.setBounds(220,20,300,40);
+        Border solidBorder = BorderFactory.createLineBorder(Color.BLACK, 1);
+
+        JLabel historyLabel = new JLabel("  TRANSACTIONS HISTORY");
+        historyLabel.setBorder(solidBorder);
+        historyLabel.setFont(new Font("Courier New", Font.PLAIN, 16));
+        historyLabel.setBounds(185,20,240,40);
         add(historyLabel);
 
         JButton listButton = new JButton("LIST");
@@ -23,7 +28,7 @@ public class HistoryMenu extends Container {
         textArea.setBounds(100, 105, 400, 180);
         add(textArea);
 
-        JButton backButton = new JButton("Back to menu");
+        JButton backButton = new JButton("BACK TO MENU");
         backButton.setBounds(100, 290, 400, 30);
         add(backButton);
 
