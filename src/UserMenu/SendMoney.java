@@ -127,8 +127,8 @@ public class SendMoney extends Container{
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MainFrame.smoney.setVisible(false);
-                MainFrame.Lmenu.setVisible(true);
+                Main.frame.smoney.setVisible(false);
+                Main.frame.Lmenu.setVisible(true);
             }
         });
     }

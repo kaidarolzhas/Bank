@@ -16,12 +16,25 @@ public class LoginedMenu extends Container {
     public static JLabel uname;
 
     public LoginedMenu(){
-
-
-
-
-        setSize(500,500);
+        setSize(600,400);
         setLayout(null);
+
+        JButton listButton = new JButton("LIST");
+        listButton.setBounds(50,75,150,40);
+        add(listButton);
+
+        JButton addButton = new JButton("ADD BALANCE");
+        addButton.setBounds(50,125,150,40);
+        add(addButton);
+
+        JButton Send = new JButton("SEND");
+        Send.setBounds(50,175,150,40);
+        add(Send);
+
+        JButton LogutButton = new JButton("BACK");
+        LogutButton.setBounds(50,215,150,40);
+        add(LogutButton);
+
 
         JLabel title = new JLabel("TRANSACTIONS HISTORY");
         title.setBounds(240,5,300,40);
@@ -31,17 +44,6 @@ public class LoginedMenu extends Container {
         tip.setBounds(240,20,300,50);
         add(tip);
 
-
-        JButton addButton = new JButton("ADD BALANCE");
-        addButton.setBounds(10,160,130,20);
-        add(addButton);
-
-        JButton listButton = new JButton("List");
-        listButton.setBounds(10,210,130,20);
-        add(listButton);
-
-
-
         myMoney = new JLabel( );
         myMoney.setBounds(10,20,300,40);
         add(myMoney);
@@ -50,24 +52,10 @@ public class LoginedMenu extends Container {
         uname.setBounds(10,5,300,40);
         add(uname);
 
-
-
-
-
-
-
         textArea = new JTextArea();
-        textArea.setBounds(180, 60, 400, 250);
+        textArea.setBounds(210, 75, 300, 250);
         textArea.setEditable(false);
         add(textArea);
-
-        JButton LogutButton = new JButton("LOGOUT");
-        LogutButton.setBounds(10,60,130,20);
-        add(LogutButton);
-
-        JButton Send = new JButton("SEND");
-        Send.setBounds(10,110,130,20);
-        add(Send);
 
         addButton.addActionListener(new ActionListener() {
             @Override
